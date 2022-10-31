@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PauseBehaviour : MonoBehaviour
 {
+    public GameObject GameUI;
     public GameObject PauseUI;
+    
+    public bool isPaused = false;
 
     void Start()
     {
@@ -19,9 +22,11 @@ public class PauseBehaviour : MonoBehaviour
             PauseGame();
         }
     }
+
     public void PauseGame()
     {
         Cursor.lockState = CursorLockMode.None;
+        GameUI.SetActive(false);
         PauseUI.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -29,6 +34,7 @@ public class PauseBehaviour : MonoBehaviour
     public void ResumeGame()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        GameUI.SetActive(true);
         PauseUI.SetActive(false);
         Time.timeScale = 1;
     }
