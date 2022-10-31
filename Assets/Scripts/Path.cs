@@ -47,7 +47,7 @@ public class Path : MonoBehaviour
         {
             GameObject currentTile = startingTile;
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 32; i++)
                 MoveLeft(ref currentTile);
                 
 

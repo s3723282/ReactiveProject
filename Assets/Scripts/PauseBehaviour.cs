@@ -7,7 +7,9 @@ public class PauseBehaviour : MonoBehaviour
 {
     public GameObject GameUI;
     public GameObject PauseUI;
-    
+    public GameObject Player;
+    public GameObject PlayerSound;
+
     public bool isPaused = false;
 
     void Start()
@@ -20,6 +22,7 @@ public class PauseBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
+            Player.GetComponent<FirstPersonLook>().enabled = false;
         }
     }
 
@@ -33,6 +36,7 @@ public class PauseBehaviour : MonoBehaviour
 
     public void ResumeGame()
     {
+        Player.GetComponent<FirstPersonLook>().enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         GameUI.SetActive(true);
         PauseUI.SetActive(false);
@@ -41,6 +45,7 @@ public class PauseBehaviour : MonoBehaviour
 
     public void RestartGame()
     {
+        Player.GetComponent<FirstPersonLook>().enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         PauseUI.SetActive(false);
         Time.timeScale = 1;
