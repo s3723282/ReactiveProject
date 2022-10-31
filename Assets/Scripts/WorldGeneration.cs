@@ -45,7 +45,7 @@ public class WorldGeneration : MonoBehaviour
 
     private void SpawnObject()
     {
-        for (int c = 0; c < 100; c++)
+        for (int c = 0; c < 500; c++)
         {
             GameObject toPlaceObject = Instantiate(objectToSpawn,
             ObjectSpawnLocation(),
